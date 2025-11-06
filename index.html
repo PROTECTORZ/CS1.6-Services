@@ -13,35 +13,94 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a0000 0%, #2d0a0a 100%);
+            background: #0a0a0a;
             color: #e0e0e0;
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(220, 20, 60, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.04) 0%, transparent 50%),
+                linear-gradient(135deg, #1a0000 0%, #2d0a0a 50%, #1a0000 100%);
+            z-index: -1;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
         }
         
         header {
             text-align: center;
             margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #dc143c;
+            padding: 40px 20px 30px;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border: 2px solid #dc143c;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '⚙️';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            top: -50px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+        
+        header::after {
+            content: '🔫';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            bottom: -40px;
+            left: -20px;
+            transform: rotate(25deg);
+        }
+        
+        .cs-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc143c, #8b0000);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
         }
         
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             color: #dc143c;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(220, 20, 60, 0.3);
+            position: relative;
+            z-index: 1;
         }
         
         .subtitle {
             font-size: 1.2em;
             color: #b8b8b8;
+            position: relative;
+            z-index: 1;
         }
         
         .lang-switch {
@@ -84,18 +143,36 @@
         }
         
         .service-card {
-            background: rgba(220, 20, 60, 0.05);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.08) 0%, rgba(139, 0, 0, 0.05) 100%);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(220, 20, 60, 0.3);
-            border-radius: 10px;
-            padding: 25px;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            border: 2px solid rgba(220, 20, 60, 0.25);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(220, 20, 60, 0.6);
-            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.2);
+            transform: translateY(-4px);
+            border-color: rgba(220, 20, 60, 0.5);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.2);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.12) 0%, rgba(139, 0, 0, 0.08) 100%);
         }
         
         .service-header {
@@ -106,7 +183,8 @@
         }
         
         .service-level {
-            font-size: 2em;
+            font-size: 2.5em;
+            filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.5));
         }
         
         .service-card h3 {
@@ -127,10 +205,20 @@
         .price {
             color: #4ecca3;
             font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            font-size: 1.3em;
+            margin-top: 20px;
+            padding: 15px;
+            border-top: 2px solid rgba(220, 20, 60, 0.2);
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.05), rgba(78, 204, 163, 0.1));
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .price {
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.1), rgba(78, 204, 163, 0.15));
+            box-shadow: 0 0 15px rgba(78, 204, 163, 0.2);
+            transform: scale(1.02);
         }
         
         .contact-section {
@@ -174,6 +262,7 @@
 <body>
     <div class="container">
         <header>
+            <div class="cs-badge">🎮 Counter-Strike 1.6</div>
             <h1>⚙️ CS 1.6 Development</h1>
             <p class="subtitle">Professional Plugin & Mod Development Services</p>
         </header>
@@ -313,13 +402,16 @@
                 <p>Интересувате ли се от услугите ми? Свържете се за детайлна оферта и консултация.</p>
                 <div class="contact-info">
                     <p>💬 За персонализирани заявки или специални проекти извън изброените, пишете ми в Discord.</p>
+                    <p style="margin-top: 15px; font-size: 1.1em; color: #dc143c; font-weight: bold;">
+                        Discord: <span style="color: #fff;">onemanarmy1_</span>
+                    </p>
                     <p style="margin-top: 10px; font-size: 0.95em; color: #b8b8b8;">💡 Всички цени са за договаряне в зависимост от сложността и специфичните изисквания на проекта.</p>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>&copy; 2024 CS 1.6 Development Services | Professional Plugin & Mod Development</p>
+            <p>&copy; 2025 OneManArmy | Professional CS 1.6 Plugin Development</p>
         </footer>
     </div>
     
