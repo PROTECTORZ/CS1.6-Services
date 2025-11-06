@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 1.6 Development Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0000 0%, #2d0a0a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #dc143c;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #dc143c;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #b8b8b8;
+        }
+        
+        .lang-switch {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .lang-btn {
+            background: #dc143c;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        
+        .lang-btn:hover {
+            background: #ff1744;
+        }
+        
+        .lang-btn.active {
+            background: #b00020;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .services {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .service-card {
+            background: rgba(220, 20, 60, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220, 20, 60, 0.6);
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.2);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .service-level {
+            font-size: 2em;
+        }
+        
+        .service-card h3 {
+            color: #ff6b35;
+            font-size: 1.5em;
+        }
+        
+        .service-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .service-list li {
+            margin: 8px 0;
+            color: #d0d0d0;
+        }
+        
+        .price {
+            color: #4ecca3;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .contact-section {
+            background: rgba(255, 107, 53, 0.1);
+            border: 2px solid #ff6b35;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-section h2 {
+            color: #ff6b35;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .service-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ CS 1.6 Development</h1>
+            <p class="subtitle">Professional Plugin & Mod Development Services</p>
+        </header>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('en')">English</button>
+            <button class="lang-btn" onclick="switchLang('bg')">Български</button>
+        </div>
+        
+        <!-- English Content -->
+        <div id="en-content" class="content active">
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🔧</span>
+                        <h3>Basic Services</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Installation and setup of AMX Mod X, Metamod and dependencies</li>
+                        <li>Bug fixes in existing plugins</li>
+                        <li>Small code modifications (commands, messages, CVARs, etc.)</li>
+                    </ul>
+                    <div class="price">€5 - €15</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🛠️</span>
+                        <h3>Intermediate Level</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Creating new plugins with basic features (rewards, point systems, HUD messages, etc.)</li>
+                        <li>Combining multiple existing plugins into one</li>
+                        <li>Optimization and lag removal</li>
+                    </ul>
+                    <div class="price">€15 - €40</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🚀</span>
+                        <h3>Advanced Services</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Full mod development (Zombie Plague, BaseBuilder, JailBreak, etc.)</li>
+                        <li>Creating unique systems (level system, VIP menus, custom shop, etc.)</li>
+                        <li>Complete server package – installation, configuration, optimization</li>
+                    </ul>
+                    <div class="price">From €50+</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🔄</span>
+                        <h3>Maintenance & Support</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Code fixes and debugging</li>
+                        <li>Regular updates and improvements</li>
+                        <li>Error cleanup and optimization</li>
+                    </ul>
+                    <div class="price">€10 - €20/month</div>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <h2>📬 Get in Touch</h2>
+                <p>Interested in my services? Contact me for a detailed quote and consultation.</p>
+                <div class="contact-info">
+                    <p>💬 For custom requests or special projects not listed above, feel free to reach out via Discord.</p>
+                    <p style="margin-top: 15px; font-size: 1.1em; color: #dc143c; font-weight: bold;">
+                        Discord: <span style="color: #fff;">onemanarmy1_</span>
+                    </p>
+                    <p style="margin-top: 10px; font-size: 0.95em; color: #b8b8b8;">💡 All prices are negotiable depending on project complexity and specific requirements.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bulgarian Content -->
+        <div id="bg-content" class="content">
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🔧</span>
+                        <h3>Основни услуги</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Инсталация и настройка на AMX Mod X, Metamod и зависимости</li>
+                        <li>Поправяне на грешки в съществуващи плъгини</li>
+                        <li>Малки промени в кода (команди, съобщения, CVAR-и и т.н.)</li>
+                    </ul>
+                    <div class="price">10 - 30 лв.</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🛠️</span>
+                        <h3>Средно ниво</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Създаване на нови плъгини с базови функции (награди, системи за точки, HUD съобщения и т.н.)</li>
+                        <li>Комбиниране на няколко съществуващи плъгина в един</li>
+                        <li>Оптимизация и премахване на лагове</li>
+                    </ul>
+                    <div class="price">30 - 80 лв.</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🚀</span>
+                        <h3>Напреднали услуги</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Разработка на пълен мод (Zombie Plague, BaseBuilder, JailBreak и др.)</li>
+                        <li>Създаване на уникални системи (level system, VIP менюта, custom shop и т.н.)</li>
+                        <li>Пълен сървърен пакет – инсталация, конфигурация, оптимизация</li>
+                    </ul>
+                    <div class="price">От 100 лв.+</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-level">🔄</span>
+                        <h3>Поддръжка</h3>
+                    </div>
+                    <ul class="service-list">
+                        <li>Оправяне на код и отстраняване на грешки</li>
+                        <li>Редовни обновления и подобрения</li>
+                        <li>Изчистване на грешки и оптимизация</li>
+                    </ul>
+                    <div class="price">20 - 40 лв./месец</div>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <h2>📬 Свържете се с мен</h2>
+                <p>Интересувате ли се от услугите ми? Свържете се за детайлна оферта и консултация.</p>
+                <div class="contact-info">
+                    <p>💬 За персонализирани заявки или специални проекти извън изброените, пишете ми в Discord.</p>
+                    <p style="margin-top: 10px; font-size: 0.95em; color: #b8b8b8;">💡 Всички цени са за договаряне в зависимост от сложността и специфичните изисквания на проекта.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 CS 1.6 Development Services | Professional Plugin & Mod Development</p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(lang + '-content').classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
