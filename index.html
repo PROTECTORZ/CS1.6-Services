@@ -33,6 +33,7 @@
                 radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.04) 0%, transparent 50%),
                 linear-gradient(135deg, #1a0000 0%, #2d0a0a 50%, #1a0000 100%);
             z-index: -1;
+            pointer-events: none;
         }
         
         .container {
@@ -61,6 +62,7 @@
             top: -50px;
             right: -30px;
             transform: rotate(-15deg);
+            pointer-events: none;
         }
         
         header::after {
@@ -71,6 +73,7 @@
             bottom: -40px;
             left: -20px;
             transform: rotate(25deg);
+            pointer-events: none;
         }
         
         .cs-badge {
@@ -162,6 +165,7 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
             transition: left 0.5s ease;
+            pointer-events: none;
         }
         
         .service-card:hover::before {
@@ -426,4 +430,5 @@
     </script>
 </body>
 </html>
+
 
